@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --color-primary: #6366f1;
+  --color-primary-hover: #4f46e5;
+  --color-accent: #a855f7;
+  --color-pink: #ec4899;
+  --color-rose: #f43f5e;
+  --color-emerald: #10b981;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #0a0e1a;
+  color: #f8fafc;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.7);
+}
+
+/* Animated gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #a855f7, #ec4899, #f43f5e, #6366f1);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Pulse glow animation for the upload area */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.25); }
+}
