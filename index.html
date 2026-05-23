@@ -1,13 +1,186 @@
 <!doctype html>
-<html lang="en">
+<html class="dark" lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="PDFies - Transform your PDF documents into stunning standalone websites instantly. 100% client-side, no uploads required." />
-    <title>PDFies - Convert PDF to Website</title>
+    <title>PDFies - Transform PDFs into Websites Instantly</title>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#e9ddff",
+                        "outline": "#8e90a2",
+                        "inverse-primary": "#124af0",
+                        "tertiary-container": "#803eff",
+                        "on-primary-fixed": "#001356",
+                        "error-container": "#93000a",
+                        "primary": "#b8c3ff",
+                        "primary-container": "#2e5bff",
+                        "inverse-surface": "#e2e2e8",
+                        "tertiary-fixed-dim": "#d1bcff",
+                        "surface-container-lowest": "#0c0e12",
+                        "surface-variant": "#333539",
+                        "surface": "#111317",
+                        "outline-variant": "#434656",
+                        "on-tertiary-fixed-variant": "#5700c9",
+                        "surface-dim": "#111317",
+                        "surface-container": "#1e2024",
+                        "surface-tint": "#b8c3ff",
+                        "on-secondary-container": "#00686f",
+                        "surface-bright": "#37393e",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#002022",
+                        "on-secondary": "#00363a",
+                        "on-primary": "#002388",
+                        "surface-container-highest": "#333539",
+                        "surface-container-low": "#1a1c20",
+                        "on-tertiary": "#3c0090",
+                        "on-tertiary-container": "#f5edff",
+                        "on-primary-fixed-variant": "#0035be",
+                        "on-primary-container": "#efefff",
+                        "on-secondary-fixed-variant": "#004f54",
+                        "on-background": "#e2e2e8",
+                        "secondary-fixed-dim": "#00dbe9",
+                        "on-tertiary-fixed": "#23005b",
+                        "surface-container-high": "#282a2e",
+                        "inverse-on-surface": "#2f3035",
+                        "secondary-container": "#00eefc",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e2e2e8",
+                        "secondary-fixed": "#7df4ff",
+                        "background": "#111317",
+                        "on-surface-variant": "#c4c5d9",
+                        "on-error": "#690005",
+                        "primary-fixed": "#dde1ff",
+                        "tertiary": "#d1bcff",
+                        "secondary": "#d3fbff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "1rem",
+                        "margin-desktop": "2rem",
+                        "base-unit": "4px",
+                        "gutter": "1.5rem",
+                        "container-max": "1440px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-md": ["JetBrains Mono"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-md": ["30px", {"lineHeight": "38px", "fontWeight": "600"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(17, 19, 23, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .electric-glow {
+            text-shadow: 0 0 15px rgba(46, 91, 255, 0.4);
+        }
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -20;
+            background: radial-gradient(circle at 50% 50%, #1a1c20 0%, #111317 100%);
+            overflow: hidden;
+        }
+        .ambient-glow {
+            position: absolute;
+            width: 80vmax;
+            height: 80vmax;
+            background: radial-gradient(circle, rgba(46, 91, 255, 0.03) 0%, rgba(46, 91, 255, 0) 70%);
+            border-radius: 50%;
+            top: -40vmax;
+            left: -40vmax;
+            animation: moveGlow 25s infinite alternate ease-in-out;
+            pointer-events: none;
+        }
+        @keyframes moveGlow {
+            from { transform: translate(0, 0); }
+            to { transform: translate(60vw, 40vh); }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-entrance {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 2s infinite ease-in-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-entrance, .animate-pulse-soft, .ambient-glow {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
   </head>
-  <body>
+  <body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden relative">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
